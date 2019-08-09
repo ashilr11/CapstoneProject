@@ -1,7 +1,7 @@
 from django.db import models
 
 class Incident(models.Model):
-    participantNo = models.CharField(max_length=255)
+    participantID = models.CharField(max_length=255)
     npa_a4_growth = models.CharField(max_length=255)
     dateCollected = models.CharField(max_length=255)
     presence = models.CharField(max_length=255)
@@ -12,3 +12,6 @@ class Incident(models.Model):
     serotype = models.CharField(max_length=255)
     vaccine = models.CharField(max_length=255)
     sequence = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f'{self.participantID}'

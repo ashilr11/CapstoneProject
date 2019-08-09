@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.conf.urls import url
 
 urlpatterns = [
     path('', views.home, name='App-home'),
@@ -7,5 +8,4 @@ urlpatterns = [
     path('datacards/', views.datacards, name='App-datacards'),
     path('help/', views.help, name='App-help'),
     path('about/', views.about, name='App-about'),
-    url(r'^upload/csv/$', views.upload_csv, name='upload_csv'),
 ]

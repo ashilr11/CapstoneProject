@@ -2,6 +2,15 @@
 {% load static %}
 {% block content %}
 
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <form action="{% url "App-adddata" %}" method="POST" enctype="multipart/form-data" class="form-horizontal">
 {% csrf_token %}
 <div class="form-group">
