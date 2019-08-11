@@ -1,3 +1,8 @@
+#The view file handles certain requests from the browser.
+#It links the html files to HttpRequests.
+#Some of these requests are ‘GET’ or “POST” methods.
+#These HttpRequests can be used to transfer and get data from the browser to the actual python scripts.
+
 from django.shortcuts import render
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -12,6 +17,7 @@ import base64
 
 from . import models
 
+#The home(request) function gets data from the database, processes it using with matplotlab and creates a 3d histomgram as an overview graph.
 def home(request):
 
 	theIncidents = Incident.objects.all()
@@ -155,6 +161,7 @@ def home(request):
 
 	return render(request, 'pneumovis/home.html')
 
+#The adddata(request) function reads the csv file, processes and uploads the file to the database.
 def adddata(request):
 	data = {}
 	if "GET" == request.method:

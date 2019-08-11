@@ -1,3 +1,7 @@
+#holds the data that is passed from a csv file.
+#In addition, when the server is run these model objects can be used to create a record of data or can be used to access or delete the data.
+#The file acts as a way for tables of the model to be created and stored into the sqlite3 database.
+
 from django.db import models
 
 class Incident(models.Model):

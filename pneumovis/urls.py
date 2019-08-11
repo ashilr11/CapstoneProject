@@ -1,3 +1,5 @@
+#this is where we set up the mappings from certain urls to where we send the user. Maps urls to certain html web pages
+
 from django.urls import path
 from . import views
 from django.conf.urls import url
