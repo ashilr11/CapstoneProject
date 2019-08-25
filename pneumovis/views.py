@@ -9,8 +9,9 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.urls import reverse
 from .models import Incident
+from .dataHandler import DataHandler
 from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt, mpld3
+import matplotlib.pyplot as plt
 import numpy as np
 from io import BytesIO
 import base64
@@ -21,143 +22,8 @@ from . import models
 def home(request):
 
 	theIncidents = Incident.objects.all()
-
-	list = []
-	maleCount = 0
-	hivExposedCount = 0
-	gugulethuCount = 0
-	mandalayCount = 0
-	totalCount = 0
-
-	for i in theIncidents:
-		if (i.sequence == '361' and i.sex == 'Male'):
-			maleCount += 1
-		if (i.sequence == '361' and i.hivExposed == 'Yes'):
-			hivExposedCount += 1
-		if (i.sequence == '361' and i.site == 'Gugulethu'):
-			gugulethuCount += 1
-		if (i.sequence == '361' and i.site == 'Mandalay'):
-			mandalayCount += 1
-		if (i.sequence == '361'.translate('361'.maketrans('','','*~'))):
-			totalCount += 1
-	list.append([maleCount, hivExposedCount, gugulethuCount, mandalayCount, totalCount])
-	maleCount = 0
-	hivExposedCount = 0
-	gugulethuCount = 0
-	mandalayCount = 0
-	totalCount = 0
-	for i in theIncidents:
-		if (i.sequence == '10854' and i.sex == 'Male'):
-			maleCount += 1
-		if (i.sequence == '10854' and i.hivExposed == 'Yes'):
-			hivExposedCount += 1
-		if (i.sequence == '10854' and i.site == 'Gugulethu'):
-			gugulethuCount += 1
-		if (i.sequence == '10854' and i.site == 'Mandalay'):
-			mandalayCount += 1
-		if (i.sequence == '10854'.translate('10854'.maketrans('','','*~'))):
-			totalCount += 1
-	list.append([maleCount, hivExposedCount, gugulethuCount, mandalayCount, totalCount])
-	maleCount = 0
-	hivExposedCount = 0
-	gugulethuCount = 0
-	mandalayCount = 0
-	totalCount = 0
-
-	for i in theIncidents:
-		if (i.sequence == '8687' and i.sex == 'Male'):
-			maleCount += 1
-		if (i.sequence == '8687' and i.hivExposed == 'Yes'):
-			hivExposedCount += 1
-		if (i.sequence == '8687' and i.site == 'Gugulethu'):
-			gugulethuCount += 1
-		if (i.sequence == '8687' and i.site == 'Mandalay'):
-			mandalayCount += 1
-		if (i.sequence == '8687'.translate('8687'.maketrans('','','*~'))):
-			totalCount += 1
-	list.append([maleCount, hivExposedCount, gugulethuCount, mandalayCount, totalCount])
-	maleCount = 0
-	hivExposedCount = 0
-	gugulethuCount = 0
-	mandalayCount = 0
-	totalCount = 0
-
-	for i in theIncidents:
-		if (i.sequence == '2062' and i.sex == 'Male'):
-			maleCount += 1
-		if (i.sequence == '2062' and i.hivExposed == 'Yes'):
-			hivExposedCount += 1
-		if (i.sequence == '2062' and i.site == 'Gugulethu'):
-			gugulethuCount += 1
-		if (i.sequence == '2062' and i.site == 'Mandalay'):
-			mandalayCount += 1
-		if (i.sequence == '2062'.translate('2062'.maketrans('','','*~'))):
-			totalCount += 1
-	list.append([maleCount, hivExposedCount, gugulethuCount, mandalayCount, totalCount])
-	maleCount = 0
-	hivExposedCount = 0
-	gugulethuCount = 0
-	mandalayCount = 0
-	totalCount = 0
-
-	for i in theIncidents:
-		if (i.sequence == '3450' and i.sex == 'Male'):
-			maleCount += 1
-		if (i.sequence == '3450' and i.hivExposed == 'Yes'):
-			hivExposedCount += 1
-		if (i.sequence == '3450' and i.site == 'Gugulethu'):
-			gugulethuCount += 1
-		if (i.sequence == '3450' and i.site == 'Mandalay'):
-			mandalayCount += 1
-		if (i.sequence == '3450'.translate('3450'.maketrans('','','*~'))):
-			totalCount += 1
-	list.append([maleCount, hivExposedCount, gugulethuCount, mandalayCount, totalCount])
-	maleCount = 0
-	hivExposedCount = 0
-	gugulethuCount = 0
-	mandalayCount = 0
-	totalCount = 0
-
-	data = np.array(list)
-	yaxisNames = ['35B(361)', '21(10854)', '15B/C(8687)', '19A(2062)', '16F(3450)']
-	xaxisNames = ['male', 'hivExposed', 'gugulethu', 'mandalay', 'total']
-	fig = plt.figure()
-	ax = Axes3D(fig)
-
-	lx= len(data[0])           # Work out matrix dimensions
-	ly= len(data[:,0])
-	xpos = np.arange(0,lx,1)    # Set up a mesh of positions
-	ypos = np.arange(0,ly,1)
-	xpos, ypos = np.meshgrid(xpos+0.25, ypos+0.25)
-
-	xpos = xpos.flatten()   # Convert positions to 1D array
-	ypos = ypos.flatten()
-	zpos = np.zeros(lx*ly)
-
-	dx = 0.5 * np.ones_like(zpos)
-	dy = dx.copy()
-	dz = data.flatten()
-
-	cs = ['r', 'g', 'b', 'y', 'c'] * ly
-
-	ax.bar3d(xpos,ypos,zpos, dx, dy, dz, color=cs)
-
-	#sh()
-	ax.w_xaxis.set_ticklabels(xaxisNames)
-	ax.w_yaxis.set_ticklabels(yaxisNames)
-	ax.set_xlabel('Category')
-	ax.set_ylabel('Serotype')
-	ax.set_zlabel('Number of Incidents')
-
-	#plt.show()
-	#html_fig = mpld3.fig_to_html(fig, template_type='simple')
-	#buffer = BytesIO()
-	#plt.savefig(buffer, format='png')
-	#buffer.seek(0)
-	#image_png = buffer.getvalue()
-	#buffer.close()
-	#graphic = base64.b64encode(image_png)
-	#graphic = graphic.decode('utf-8')
+	obj = DataHandler()
+	listOfData = obj.handleData(theIncidents)
 
 	return render(request, 'pneumovis/home.html')
 
