@@ -11,7 +11,7 @@ from django.urls import reverse
 from .models import Incident
 from .dataHandler import DataHandler
 from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt, mpld3
 import numpy as np
 from io import BytesIO
 import base64
@@ -20,12 +20,61 @@ from . import models
 
 #The home(request) function gets data from the database, processes it using with matplotlab and creates a 3d histomgram as an overview graph.
 def home(request):
-
+	plt.switch_backend('SVG')
 	theIncidents = Incident.objects.all()
 	obj = DataHandler()
 	listOfData = obj.handleData(theIncidents)
+	serotypeList = ["ST199","ST361","ST393","ST471","ST1447","ST2059","ST2062","ST2068","ST3358","ST3450","ST3983","ST4088","ST4893","ST5647","ST7052",
+					"ST7345","ST8687","ST8838","ST10605","ST10673","ST10823","ST10854","ST13795","ST13797","ST13798","ST13799"]
+	vaccinatedList = []
+	notVaccinatedList = []
+	maleList = []
+	femaleList = []
+	gugulethuList = []
+	mandalayList = []
+	hivExposedList = []
 
-	return render(request, 'pneumovis/home.html')
+	for i in listOfData:
+		vaccinatedList.append(i[4])
+		notVaccinatedList.append(i[5]-i[4])
+		maleList.append(i[0])
+		femaleList.append(i[5]-i[0])
+		gugulethuList.append(i[2])
+		mandalayList.append(i[3])
+		hivExposedList.append(i[1])
+	groups = 26
+	# create plot
+	fig, ax = plt.subplots(figsize=(18,7))
+	index = np.arange(groups)
+	bar_width = 0.35
+	opacity = 0.75
+
+	stems1 = plt.stem(index, hivExposedList, label='Hiv Exposed', linefmt='C9-', markerfmt='C9x')
+	rects1 = plt.bar(index, gugulethuList, bar_width,
+	alpha=opacity,
+	color='b',
+	label='Guguletho')
+
+	rects2 = plt.bar(index + bar_width, mandalayList, bar_width,
+	alpha=opacity,
+	color='k',
+	label='Mandalay', hatch='/')
+
+	lines1 = plt.plot(index, maleList, marker='o', color='r', label='Males')
+	lines2 = plt.plot(index, femaleList, marker='o', color='y', label='Females')
+
+
+
+	plt.xlabel('Serotypes')
+	plt.ylabel('Number of Incidents')
+	plt.xticks(index + bar_width, serotypeList)
+	plt.legend()
+
+	plt.tight_layout()
+	#plt.show()
+
+	html_graph = mpld3.fig_to_html(fig)
+	return render(request, 'pneumovis/home.html', {'graph': [html_graph]})
 
 #The adddata(request) function reads the csv file, processes and uploads the file to the database.
 def adddata(request):
