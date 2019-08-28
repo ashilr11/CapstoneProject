@@ -10,6 +10,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 from .models import Incident
 from .dataHandler import DataHandler
+from .statistics import Statistics
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt, mpld3
 import numpy as np
@@ -44,7 +45,7 @@ def home(request):
 		hivExposedList.append(i[1])
 	groups = 26
 	# create plot
-	fig, ax = plt.subplots(figsize=(18,7))
+	fig, ax = plt.subplots(figsize=(18,7.5))
 	index = np.arange(groups)
 	bar_width = 0.35
 	opacity = 0.75
@@ -63,18 +64,22 @@ def home(request):
 	lines1 = plt.plot(index, maleList, marker='o', color='r', label='Males')
 	lines2 = plt.plot(index, femaleList, marker='o', color='y', label='Females')
 
-
-
 	plt.xlabel('Serotypes')
 	plt.ylabel('Number of Incidents')
 	plt.xticks(index + bar_width, serotypeList)
 	plt.legend()
-
 	plt.tight_layout()
-	#plt.show()
-
 	html_graph = mpld3.fig_to_html(fig)
-	return render(request, 'pneumovis/home.html', {'graph': [html_graph]})
+	statsObj = Statistics()
+	data = {'graph': [html_graph],
+	 		'noOfMales': statsObj.noOfMales(theIncidents),
+			'noOfFemales': statsObj.noOfFemales(theIncidents),
+			'noFromGugulethu': statsObj.noFromGugulethu(theIncidents),
+			'noFromMandalay': statsObj.noFromMandalay(theIncidents),
+			'noOfHivExposed': statsObj.noOfHivExposed(theIncidents),
+			'noOfVaccinated': statsObj.noOfVaccinated(theIncidents)}
+
+	return render(request, 'pneumovis/home.html', data )
 
 #The adddata(request) function reads the csv file, processes and uploads the file to the database.
 def adddata(request):

@@ -17,6 +17,24 @@ ul {
   margin: 0;
 }
 
+img {
+  border-radius: 50px
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 2px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+}
+
 .bg-steel {
   background-color: #5f788a;
 }

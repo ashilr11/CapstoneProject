@@ -6,40 +6,40 @@ class Statistics:
         count = 0
         for i in theIncidents:
             if (i.sex == 'Male'):
-                count++
+                count += 1
         return count
 
     def noOfFemales(self, theIncidents):
         count = 0
         for i in theIncidents:
-            if (i.sex == 'Females'):
-                count++
+            if (i.sex == 'Female'):
+                count += 1
         return count
 
-    def noFromGuguletho(self, theIncidents):
+    def noFromGugulethu(self, theIncidents):
         count = 0
         for i in theIncidents:
-            if (i.site == 'Guguletho'):
-                count++
+            if (i.site == 'Gugulethu'):
+                count += 1
         return count
 
     def noFromMandalay(self, theIncidents):
         count = 0
         for i in theIncidents:
             if (i.site == 'Mandalay'):
-                count++
+                count += 1
         return count
 
     def noOfHivExposed(self, theIncidents):
         count = 0
         for i in theIncidents:
             if (i.hivExposed == 'Yes'):
-                count++
+                count += 1
         return count
 
     def noOfVaccinated(self, theIncidents):
         count = 0
         for i in theIncidents:
             if (i.vaccine == 'PCV'):
-                count++
+                count += 1
         return count
