@@ -11,6 +11,7 @@ from django.urls import reverse
 from .models import Incident
 from .dataHandler import DataHandler
 from .statistics import Statistics
+from .plots import Plots
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt, mpld3
 import numpy as np
@@ -34,6 +35,7 @@ def home(request):
 	gugulethuList = []
 	mandalayList = []
 	hivExposedList = []
+	presenceList = []
 
 	for i in listOfData:
 		vaccinatedList.append(i[4])
@@ -43,36 +45,20 @@ def home(request):
 		gugulethuList.append(i[2])
 		mandalayList.append(i[3])
 		hivExposedList.append(i[1])
-	groups = 26
-	# create plot
-	fig, ax = plt.subplots(figsize=(18,7.5))
-	index = np.arange(groups)
-	bar_width = 0.35
-	opacity = 0.75
+		presenceList.append(i[6])
 
-	stems1 = plt.stem(index, hivExposedList, label='Hiv Exposed', linefmt='C9-', markerfmt='C9x')
-	rects1 = plt.bar(index, gugulethuList, bar_width,
-	alpha=opacity,
-	color='b',
-	label='Guguletho')
+	plotObj = Plots()
+	overviewGraph = plotObj.createOverview(hivExposedList, gugulethuList, mandalayList, maleList, femaleList, serotypeList)
+	hivVsPresenceGraph = plotObj.createHivVsPresence(hivExposedList, presenceList)
+	vaccinatedGraph = plotObj.createVaccineVsPresence(vaccinatedList, notVaccinatedList, presenceList)
+	sitesGraph = plotObj.createSitesGraph(gugulethuList, mandalayList)
 
-	rects2 = plt.bar(index + bar_width, mandalayList, bar_width,
-	alpha=opacity,
-	color='k',
-	label='Mandalay', hatch='/')
-
-	lines1 = plt.plot(index, maleList, marker='o', color='r', label='Males')
-	lines2 = plt.plot(index, femaleList, marker='o', color='y', label='Females')
-
-	plt.xlabel('Serotypes')
-	plt.ylabel('Number of Incidents')
-	plt.xticks(index + bar_width, serotypeList)
-	plt.legend()
-	plt.tight_layout()
-	html_graph = mpld3.fig_to_html(fig)
 	statsObj = Statistics()
-	data = {'graph': [html_graph],
-	 		'noOfMales': statsObj.noOfMales(theIncidents),
+	data = {'overviewGraph': [overviewGraph],
+			'hivVsPresenceGraph': [hivVsPresenceGraph],
+			'vaccinatedGraph': [vaccinatedGraph],
+			'sitesGraph': [sitesGraph],
+			'noOfMales': statsObj.noOfMales(theIncidents),
 			'noOfFemales': statsObj.noOfFemales(theIncidents),
 			'noFromGugulethu': statsObj.noFromGugulethu(theIncidents),
 			'noFromMandalay': statsObj.noFromMandalay(theIncidents),
@@ -99,11 +85,11 @@ def adddata(request):
 		lines = file_data.split("\n")
 		titles = lines[0].split(",")
 
-		if (titles[0] != "participantID" or titles[1] != "npa_a4_growth" or
-			titles[2] != "dateCollected" or titles[3] != "presence" or
-			titles[4] != "dob" or titles[5] != "sex" or
-			titles[6] != "hivExposed" or titles[7] != "site" or
-			titles[8] != "serotype" or titles[9] != "vaccine" or titles[10] != "sequence"):
+		if (titles[0].lower() != "participantid" or titles[1].lower() != "npa_a4_growth" or
+			titles[2].lower() != "datecollected" or titles[3].lower() != "presence" or
+			titles[4].lower() != "dob" or titles[5].lower() != "sex" or
+			titles[6].lower() != "hivexposed" or titles[7].lower() != "site" or
+			titles[8].lower() != "serotype" or titles[9].lower() != "vaccine" or titles[10].lower() != "sequence"):
 			messages.error(request,'CSV file is not in corrrect format, please check the format above and try again')
 			return HttpResponseRedirect(reverse("App-adddata"))
 

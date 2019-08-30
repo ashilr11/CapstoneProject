@@ -4,7 +4,7 @@ body {
   margin-top: 5rem;
 }
 
-h1, h2, h3, h5, h6 {
+h1, h2, h3 {
   color: #444444;
 }
 
@@ -13,11 +13,19 @@ h4 {
   text-decoration: underline;
 }
 
+h5{
+  font-size: 16px
+}
+
 ul {
   margin: 0;
 }
 
-img {
+h6 {
+  font-size: 25px
+}
+
+.requiredData{
   border-radius: 50px
 }
 
@@ -33,6 +41,13 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
+}
+
+.grid-item2 {
+  background-color: rgba(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 15px;
 }
 
 .bg-steel {

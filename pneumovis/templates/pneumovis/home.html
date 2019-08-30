@@ -36,7 +36,7 @@
       </header>
       <div style="border:1px solid black;">
         <h4 align='center'>Overview of data</h4>
-        {% for elem in graph %}
+        {% for elem in overviewGraph %}
           {{elem|safe}}
         {% endfor %}
       </div><br>
@@ -44,31 +44,50 @@
         <h4 align='center'>Number of swabs</h4>
         <div class="grid-container">
           <div class="grid-item">
-            <img src="{% static 'images/maleSymbol.png' %}" alt="Male symbol" width="150" height="150">
+            <img src="{% static 'images/maleSymbol.png' %}" class "home" alt="Male symbol" width="150" height="150">
             "{{noOfMales}}" from Males
           </div>
           <div class="grid-item">
-            <img src="{% static 'images/gugulethuSymbol.png' %}" alt="Guguletho symbol" width="150" height="150">
+            <img src="{% static 'images/gugulethuSymbol.png' %}" class "home" alt="Guguletho symbol" width="150" height="150">
             "{{noFromGugulethu}}" from Gugulethu
           </div>
           <div class="grid-item">
-            <img src="{% static 'images/hivSymbol.jpg' %}" alt="HIV status symbol" width="150" height="150">
+            <img src="{% static 'images/hivSymbol.jpg' %}" class "home" alt="HIV status symbol" width="150" height="150">
             "{{noOfHivExposed}}" were positive for HIV
           </div>
           <div class="grid-item">
-            <img src="{% static 'images/femaleSymbol.png' %}" alt="Female symbol" width="150" height="150">
+            <img src="{% static 'images/femaleSymbol.png' %}" class "home" alt="Female symbol" width="150" height="150">
             "{{noOfFemales}}" from Females
           </div>
           <div class="grid-item">
-            <img src="{% static 'images/mandalaySymbol.png' %}" alt="Mandalay symbol" width="150" height="150">
+            <img src="{% static 'images/mandalaySymbol.png' %}" class "home" alt="Mandalay symbol" width="150" height="150">
             "{{noFromMandalay}}" were from Mandalay
           </div>
           <div class="grid-item">
-            <img src="{% static 'images/vaccineSymbol.jpg' %}" alt="Vaccine symbol" width="150" height="150">
+            <img src="{% static 'images/vaccineSymbol.jpg' %}" class "home" alt="Vaccine symbol" width="150" height="150">
             "{{noOfVaccinated}}" from people vaccinated
           </div>
         </div>
       </div><br>
+      <div>
+        <div class="grid-container">
+          <div class="grid-item2">
+            {% for elem in hivVsPresenceGraph %}
+              {{elem|safe}}
+            {% endfor %}
+          </div>
+          <div class="grid-item2">
+            {% for elem in vaccinatedGraph %}
+              {{elem|safe}}
+            {% endfor %}
+          </div>
+          <div class="grid-item2">
+            {% for elem in sitesGraph %}
+              {{elem|safe}}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
