@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'pneumovis/main.css' %}">
   </head>
-  <body>
+  <body class='div-back'>
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
@@ -23,11 +23,11 @@
               <a class="nav-item nav-link" href="{% url 'App-home' %}">Home</a>
               <a class="nav-item nav-link" href="{% url 'App-adddata' %}">Add Data</a>
               <a class="nav-item nav-link" href="{% url 'App-datacards' %}">Data Cards</a>
-              <a class="nav-item nav-link" href="{% url 'App-help' %}">Help</a>
               <a class="nav-item nav-link" href="{% url 'App-about' %}">About</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
+              <a class="nav-item nav-link" href="{% url 'admin:index' %}">Login to Edit Data</a>
             </div>
           </div>
         </div>
@@ -36,8 +36,8 @@
     <h6 align='center'>Information on each of the 26 serotypes</h6><br>
     <div>
       <div class="grid-container">
-        <div class="grid-item">
-          <img src="{% static 'images/ST199.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST199.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 19B</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.0.0 }}<br>
@@ -46,8 +46,8 @@
           Gugulethu: {{ array.0.2 }}<br>
           Mandalay: {{ array.0.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST361.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST361.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 35B</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.1.0 }}<br>
@@ -56,8 +56,8 @@
           Gugulethu: {{ array.1.2 }}<br>
           Mandalay: {{ array.1.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST393.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST393.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 38</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.2.0 }}<br>
@@ -66,8 +66,8 @@
           Gugulethu: {{ array.2.2 }}<br>
           Mandalay: {{ array.2.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST471.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST471.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 6B</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.3.0 }}<br>
@@ -76,9 +76,8 @@
           Gugulethu: {{ array.3.2 }}<br>
           Mandalay: {{ array.3.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST1447.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
-          <p>Sequence Number: ST1447</p>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST1447.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 6A</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.4.0 }}<br>
@@ -87,8 +86,8 @@
           Gugulethu: {{ array.4.2 }}<br>
           Mandalay: {{ array.4.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST2059.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST2059.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 23F</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.5.0 }}<br>
@@ -97,8 +96,8 @@
           Gugulethu: {{ array.5.2 }}<br>
           Mandalay: {{ array.5.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST2062.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST2062.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 19A</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.6.0 }}<br>
@@ -107,8 +106,8 @@
           Gugulethu: {{ array.6.2 }}<br>
           Mandalay: {{ array.6.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST2068.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST2068.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 10A</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.7.0 }}<br>
@@ -117,8 +116,8 @@
           Gugulethu: {{ array.7.2 }}<br>
           Mandalay: {{ array.7.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST3358.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST3358.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 31</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.8.0 }}<br>
@@ -127,8 +126,8 @@
           Gugulethu: {{ array.8.2 }}<br>
           Mandalay: {{ array.8.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST3450.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST3450.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 16F</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.9.0 }}<br>
@@ -137,8 +136,8 @@
           Gugulethu: {{ array.9.2 }}<br>
           Mandalay: {{ array.9.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST3983.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST3983.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 9N</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.10.0 }}<br>
@@ -147,8 +146,8 @@
           Gugulethu: {{ array.10.2 }}<br>
           Mandalay: {{ array.10.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST4088.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST4088.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 16F</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.11.0 }}<br>
@@ -157,8 +156,8 @@
           Gugulethu: {{ array.11.2 }}<br>
           Mandalay: {{ array.11.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST4893.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST4893.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 18B</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.12.0 }}<br>
@@ -167,8 +166,8 @@
           Gugulethu: {{ array.12.2 }}<br>
           Mandalay: {{ array.12.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST5647.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST5647.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 13</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.13.0 }}<br>
@@ -177,8 +176,8 @@
           Gugulethu: {{ array.13.2 }}<br>
           Mandalay: {{ array.13.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST7052.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST7052.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 15B/C</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.14.0 }}<br>
@@ -187,9 +186,8 @@
           Gugulethu: {{ array.14.2 }}<br>
           Mandalay: {{ array.14.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST7345.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
-          <p>Sequence Number: ST7345</p>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST7345.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 6C</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.15.0 }}<br>
@@ -198,8 +196,8 @@
           Gugulethu: {{ array.15.2 }}<br>
           Mandalay: {{ array.15.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST8687.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST8687.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 15B/C</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.16.0 }}<br>
@@ -208,8 +206,8 @@
           Gugulethu: {{ array.16.2 }}<br>
           Mandalay: {{ array.16.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST8838.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST8838.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 7C</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.17.0 }}<br>
@@ -218,8 +216,8 @@
           Gugulethu: {{ array.17.2 }}<br>
           Mandalay: {{ array.17.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST10605.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item"align='center'>
+          <img class='circles' src="{% static 'images/ST10605.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 15A</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.18.0 }}<br>
@@ -228,8 +226,8 @@
           Gugulethu: {{ array.18.2 }}<br>
           Mandalay: {{ array.18.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST10673.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST10673.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 16F</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.19.0 }}<br>
@@ -238,8 +236,8 @@
           Gugulethu: {{ array.19.2 }}<br>
           Mandalay: {{ array.19.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST10823.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST10823.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 19F</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.20.0 }}<br>
@@ -248,8 +246,8 @@
           Gugulethu: {{ array.20.2 }}<br>
           Mandalay: {{ array.20.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST10854.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST10854.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 21</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.21.0 }}<br>
@@ -258,8 +256,8 @@
           Gugulethu: {{ array.21.2 }}<br>
           Mandalay: {{ array.21.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST13795.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST13795.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 15B/C</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.22.0 }}<br>
@@ -268,8 +266,8 @@
           Gugulethu: {{ array.22.2 }}<br>
           Mandalay: {{ array.22.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST13797.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST13797.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 34</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.23.0 }}<br>
@@ -278,8 +276,8 @@
           Gugulethu: {{ array.23.2 }}<br>
           Mandalay: {{ array.23.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST13798.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST13798.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 23B</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.24.0 }}<br>
@@ -288,8 +286,8 @@
           Gugulethu: {{ array.24.2 }}<br>
           Mandalay: {{ array.24.3 }}</p>
         </div>
-        <div class="grid-item">
-          <img src="{% static 'images/ST13799.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
+        <div class="grid-item" align='center'>
+          <img class='circles' src="{% static 'images/ST13799.png' %}" class "home" alt="HIV status symbol" width="150" height="150"><br>
           <p>Serotype: 21</p>
           <p>Total number of Incidents: {{ array.0.5 }}<br>
           Males: {{ array.25.0 }}<br>

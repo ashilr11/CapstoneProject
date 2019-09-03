@@ -11,7 +11,7 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="{% static 'pneumovis/main.css' %}">
     </head>
-    <body>
+    <body class='div-back'>
       <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
           <div class="container">
@@ -23,13 +23,12 @@
               <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{% url 'App-home' %}">Home</a>
                 <a class="nav-item nav-link" href="{% url 'App-adddata' %}">Add Data</a>
-                <a class="nav-item nav-link" href="{% url 'admin:index' %}">Edit Data</a>
                 <a class="nav-item nav-link" href="{% url 'App-datacards' %}">Data Cards</a>
-                <a class="nav-item nav-link" href="{% url 'App-help' %}">Help</a>
                 <a class="nav-item nav-link" href="{% url 'App-about' %}">About</a>
               </div>
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{% url 'admin:index' %}">Login to Edit Data</a>
               </div>
             </div>
           </div>
@@ -45,27 +44,27 @@
         <h4 align='center'>Number of swabs</h4>
         <div class="grid-container">
           <div class="grid-item">
-            <img src="{% static 'images/maleSymbol.png' %}" class "home" alt="Male symbol" width="150" height="150">
+            <img class='requiredData' src="{% static 'images/maleSymbol.png' %}" class "home" alt="Male symbol" width="150" height="150">
             "{{noOfMales}}" from Males
           </div>
           <div class="grid-item">
-            <img src="{% static 'images/gugulethuSymbol.png' %}" class "home" alt="Guguletho symbol" width="150" height="150">
+            <img class='requiredData' src="{% static 'images/gugulethuSymbol.png' %}" class "home" alt="Guguletho symbol" width="150" height="150">
             "{{noFromGugulethu}}" from Gugulethu
           </div>
           <div class="grid-item">
-            <img src="{% static 'images/hivSymbol.jpg' %}" class "home" alt="HIV status symbol" width="150" height="150">
+            <img class='requiredData' src="{% static 'images/hivSymbol.png' %}" class "home" alt="HIV status symbol" width="150" height="150">
             "{{noOfHivExposed}}" were positive for HIV
           </div>
           <div class="grid-item">
-            <img src="{% static 'images/femaleSymbol.png' %}" class "home" alt="Female symbol" width="150" height="150">
+            <img class='requiredData' src="{% static 'images/femaleSymbol.png' %}" class "home" alt="Female symbol" width="150" height="150">
             "{{noOfFemales}}" from Females
           </div>
           <div class="grid-item">
-            <img src="{% static 'images/mandalaySymbol.png' %}" class "home" alt="Mandalay symbol" width="150" height="150">
+            <img class='requiredData' src="{% static 'images/mandalaySymbol.png' %}" class "home" alt="Mandalay symbol" width="150" height="150">
             "{{noFromMandalay}}" were from Mandalay
           </div>
           <div class="grid-item">
-            <img src="{% static 'images/vaccineSymbol.jpg' %}" class "home" alt="Vaccine symbol" width="150" height="150">
+            <img class='requiredData' src="{% static 'images/vaccineSymbol.png' %}" class "home" alt="Vaccine symbol" width="150" height="150">
             "{{noOfVaccinated}}" from people vaccinated
           </div>
         </div>

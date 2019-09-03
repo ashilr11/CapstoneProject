@@ -55,8 +55,8 @@ class Plots:
 		index = np.arange(groups)
 
 		lines1 = plt.plot(index, vaccinatedList, marker='o', color='k', label='Vaccinated')
-		lines2 = plt.plot(index, notVaccinatedList, marker='o', color='y', label='Not Vaccinated')
-		lines3 = plt.plot(index, presenceList, marker='o', color='r', label='Presence of bacteria')
+		#lines2 = plt.plot(index, notVaccinatedList, marker='o', color='b', label='Not Vaccinated')
+		lines3 = plt.plot(index, presenceList, marker='o', color='y', label='Presence of bacteria')
 
 		plt.ylabel('Number of Incidents')
 		plt.xlabel('Serotypes as shown in the order of the overview')

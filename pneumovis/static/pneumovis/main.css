@@ -17,6 +17,17 @@ h5{
   font-size: 16px
 }
 
+p{
+  font-size: 15px
+}
+
+.center {
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ width: 50%;
+}
+
 ul {
   margin: 0;
 }
@@ -33,22 +44,26 @@ h6 {
   display: grid;
   grid-template-columns: auto auto auto;
   padding: 2px;
+  grid-gap: 7px;
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255);
+  background-color: #e8e3e6;
   padding: 20px;
   font-size: 30px;
+  border-radius: 100px;
+  gap: 7px;
 }
 
 .grid-item2 {
-  background-color: rgba(255, 255, 255);
+  background-color: #e8e3e6;
   padding: 20px;
   font-size: 15px;
+  border-radius: 25px;
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #360f3b;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -63,12 +78,19 @@ h6 {
   font-weight: 500;
 }
 
+.div-back{
+  background-color: #e3d8de;
+}
+
 .content-section {
-  background: #ffffff;
+  background: #e8e1e5;
   padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
+  border-radius: 5px;
   margin-bottom: 20px;
+}
+
+.circles{
+  border-radius: 50%;
 }
 
 .article-title {
