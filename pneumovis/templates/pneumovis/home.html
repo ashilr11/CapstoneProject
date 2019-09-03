@@ -23,6 +23,7 @@
               <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{% url 'App-home' %}">Home</a>
                 <a class="nav-item nav-link" href="{% url 'App-adddata' %}">Add Data</a>
+                <a class="nav-item nav-link" href="{% url 'admin:index' %}">Edit Data</a>
                 <a class="nav-item nav-link" href="{% url 'App-datacards' %}">Data Cards</a>
                 <a class="nav-item nav-link" href="{% url 'App-help' %}">Help</a>
                 <a class="nav-item nav-link" href="{% url 'App-about' %}">About</a>
@@ -34,7 +35,7 @@
           </div>
         </nav>
       </header>
-      <div style="border:1px solid black;">
+      <div>
         <h4 align='center'>Overview of data</h4>
         {% for elem in overviewGraph %}
           {{elem|safe}}
