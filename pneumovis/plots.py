@@ -14,11 +14,11 @@ class Plots:
 		bar_width = 0.35
 		opacity = 0.75
 
-		stems1 = plt.stem(index, hivExposedList, label='Hiv Exposed', linefmt='C9-', markerfmt='C9x')
+		stems1 = plt.stem(index, hivExposedList, label='HIV Exposed', linefmt='C9-', markerfmt='C9x')
 		rects1 = plt.bar(index, gugulethuList, bar_width,
 		alpha=opacity,
 		color='b',
-		label='Guguletho')
+		label='Gugulethu')
 
 		rects2 = plt.bar(index + bar_width, mandalayList, bar_width,
 		alpha=opacity,
@@ -29,7 +29,7 @@ class Plots:
 		lines2 = plt.plot(index, femaleList, marker='o', color='y', label='Females')
 
 		plt.xlabel('Serotypes')
-		plt.ylabel('Number of Incidents')
+		plt.ylabel('Number Of Incidents')
 		plt.xticks(index + bar_width, serotypeList)
 		plt.legend()
 		plt.tight_layout()
@@ -40,11 +40,11 @@ class Plots:
 		groups = 26
 		index = np.arange(groups)
 
-		lines1 = plt.plot(index, hivExposedList, marker='o', color='k', label='Hiv Exposed')
-		lines2 = plt.plot(index, presenceList, marker='o', color='y', label='Presence of bacteria')
+		lines1 = plt.plot(index, hivExposedList, marker='o', color='k', label='HIV Exposed')
+		lines2 = plt.plot(index, presenceList, marker='o', color='y', label='Presence Of Bacteria')
 
-		plt.ylabel('Number of Incidents')
-		plt.xlabel('Serotypes as shown in the order of the overview')
+		plt.ylabel('Number Of Incidents')
+		plt.xlabel('Serotypes As Shown In The Order Of The Overview')
 		plt.legend()
 		plt.tight_layout()
 		return mpld3.fig_to_html(fig)
@@ -56,10 +56,10 @@ class Plots:
 
 		lines1 = plt.plot(index, vaccinatedList, marker='o', color='k', label='Vaccinated')
 		#lines2 = plt.plot(index, notVaccinatedList, marker='o', color='b', label='Not Vaccinated')
-		lines3 = plt.plot(index, presenceList, marker='o', color='y', label='Presence of bacteria')
+		lines3 = plt.plot(index, presenceList, marker='o', color='y', label='Presence Of Bacteria')
 
-		plt.ylabel('Number of Incidents')
-		plt.xlabel('Serotypes as shown in the order of the overview')
+		plt.ylabel('Number Of Incidents')
+		plt.xlabel('Serotypes As Shown In The Order Of The Overview')
 		plt.legend()
 		plt.tight_layout()
 		return mpld3.fig_to_html(fig)
@@ -69,11 +69,11 @@ class Plots:
 		groups = 26
 		index = np.arange(groups)
 
-		lines1 = plt.plot(index, gugulethuList, marker='o', color='k', label='Guguletho')
+		lines1 = plt.plot(index, gugulethuList, marker='o', color='k', label='Gugulethu')
 		lines2 = plt.plot(index, mandalayList, marker='o', color='y', label='Mandalay')
 
-		plt.ylabel('Number of Incidents')
-		plt.xlabel('Serotypes as shown in the order of the overview')
+		plt.ylabel('Number Of Incidents')
+		plt.xlabel('Serotypes As Shown In The Order Of The Overview')
 		plt.legend()
 		plt.tight_layout()
 		return mpld3.fig_to_html(fig)

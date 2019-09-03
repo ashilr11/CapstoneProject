@@ -15,7 +15,7 @@
       <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
           <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'App-home' %}">Pneumovis Project</a>
+            <a class="navbar-brand mr-4" href="{% url 'App-home' %}">Pneumoniae Bacteria Visualization</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,14 +28,14 @@
               </div>
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
-                <a class="nav-item nav-link" href="{% url 'admin:index' %}">Login to Edit Data</a>
+                <a class="nav-item nav-link" href="{% url 'admin:index' %}">Login To Edit Data</a>
               </div>
             </div>
           </div>
         </nav>
       </header>
       <div>
-        <h4 align='center'>Overview of data</h4>
+        <h4 align='center'>Overview Of Data</h4>
         {% for elem in overviewGraph %}
           {{elem|safe}}
         {% endfor %}
@@ -43,28 +43,28 @@
       <div>
         <div class="grid-container">
           <div class="grid-item">
-            <img class='requiredData' src="{% static 'images/maleSymbol.png' %}" class "home" alt="Male symbol" width="150" height="150">
-            "{{noOfMales}}" from Males
+            <img class='homeimage' src="{% static 'images/maleSymbol.png' %}" class "home" alt="Male symbol" width="150" height="150">
+            Males: {{noOfMales}}
           </div>
           <div class="grid-item">
-            <img class='requiredData' src="{% static 'images/gugulethuSymbol.png' %}" class "home" alt="Guguletho symbol" width="150" height="150">
-            "{{noFromGugulethu}}" from Gugulethu
+            <img class='homeimage' src="{% static 'images/gugulethuSymbol.png' %}" class "home" alt="Guguletho symbol" width="150" height="150">
+            Gugulethu: {{noFromGugulethu}}
           </div>
           <div class="grid-item">
-            <img class='requiredData' src="{% static 'images/hivSymbol.png' %}" class "home" alt="HIV status symbol" width="150" height="150">
-            "{{noOfHivExposed}}" were positive for HIV
+            <img class='homeimage' src="{% static 'images/hivSymbol.png' %}" class "home" alt="HIV status symbol" width="150" height="150">
+            HIV Exposed: {{noOfHivExposed}}
           </div>
           <div class="grid-item">
-            <img class='requiredData' src="{% static 'images/femaleSymbol.png' %}" class "home" alt="Female symbol" width="150" height="150">
-            "{{noOfFemales}}" from Females
+            <img class='homeimage' src="{% static 'images/femaleSymbol.png' %}" class "home" alt="Female symbol" width="150" height="150">
+            Females: {{noOfFemales}}
           </div>
           <div class="grid-item">
-            <img class='requiredData' src="{% static 'images/mandalaySymbol.png' %}" class "home" alt="Mandalay symbol" width="150" height="150">
-            "{{noFromMandalay}}" were from Mandalay
+            <img class='homeimage' src="{% static 'images/mandalaySymbol.png' %}" class "home" alt="Mandalay symbol" width="150" height="150">
+            Mandalay: {{noFromMandalay}}
           </div>
           <div class="grid-item">
-            <img class='requiredData' src="{% static 'images/vaccineSymbol.png' %}" class "home" alt="Vaccine symbol" width="150" height="150">
-            "{{noOfVaccinated}}" from people vaccinated
+            <img class='homeimage' src="{% static 'images/vaccineSymbol.png' %}" class "home" alt="Vaccine symbol" width="150" height="150">
+            Vaccinated: {{noOfVaccinated}}
           </div>
         </div>
       </div><br>

@@ -39,6 +39,10 @@ h6 {
   border-radius: 50px
 }
 
+.homeimage{
+  border-radius: 10px
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -50,7 +54,7 @@ h6 {
   background-color: #e8e3e6;
   padding: 20px;
   font-size: 30px;
-  border-radius: 100px;
+  border-radius: 50px;
   gap: 7px;
 }
 
