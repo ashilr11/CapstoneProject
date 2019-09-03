@@ -1,7 +1,11 @@
+# This class is used to get different values such as number of males or females
+# on different serotypes
+
 from .models import Incident
 
 class DataHandler:
 
+	# gets a list of incident objects, processes them and returns a 2d array on the different counts of each serotype
 	def handleData(self, theIncidents):
 		list = []
 		maleCount = 0
@@ -12,10 +16,10 @@ class DataHandler:
 		totalCount = 0
 		presenceCount = 0
 		femaleCount = 0
-
 		serotypeList = ["ST199","ST361","ST393","ST471","ST1447","ST2059","ST2062","ST2068","ST3358","ST3450","ST3983","ST4088","ST4893","ST5647","ST7052",
 						"ST7345","ST8687","ST8838","ST10605","ST10673","ST10823","ST10854","ST13795","ST13797","ST13798","ST13799"]
 
+		# for loop to calculate different counts by going through each incident object
 		for i in serotypeList:
 			tempSerotype = i[2:]
 			for i in theIncidents:

@@ -1,36 +1,34 @@
 {% extends "pneumovis/base.html" %}
 {% load static %}
+
 {% block content %}
-<br><br>
-<h6><b>Upload Your Data In The Form Of A CSV File.</b></h6><br>
-
-<h5>The column headings should be in the format as shown below. These headings are not case sensitive.</h5><br>
-
-<img src="{% static 'images/requiredData.png' %}">
-
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <br>
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-<br><br><br>
-<form action="{% url "App-adddata" %}" method="POST" enctype="multipart/form-data" class="form-horizontal">
-{% csrf_token %}
-<div>
-  <div class="form-group">
-    <br>
-    <div class="col-md-8">
-      <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+  <br><br>
+  <h6><b>Upload Your Data In The Form Of A CSV File.</b></h6><br>
+  <h5>The column headings should be in the format as shown below. These headings are not case sensitive.</h5><br>
+  <img src="{% static 'images/requiredData.png' %}">
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <br>
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  <br><br><br>
+  <form action="{% url "App-adddata" %}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+  {% csrf_token %}
+    <div>
+      <div class="form-group">
+        <br>
+        <div class="col-md-8">
+          <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
+          <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload</button>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
-      <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload</button>
-    </div>
-  </div>
-</div>
-</form>
+  </form>
 {% endblock content %}

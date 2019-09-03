@@ -17,5 +17,6 @@ class Incident(models.Model):
     vaccine = models.CharField(max_length=255)
     sequence = models.CharField(max_length=255)
 
+    # returns string representation of an incident
     def __str__(self):
         return f'{self.participantID}'
