@@ -119,7 +119,12 @@ def adddata(request):
 	return HttpResponseRedirect(reverse("App-adddata"))
 
 def datacards(request):
-	return render(request, 'pneumovis/datacards.html')
+	theIncidents = Incident.objects.all()
+	obj = DataHandler()
+	listOfData = obj.handleData(theIncidents)
+	data = {'array': listOfData}
+
+	return render(request, 'pneumovis/datacards.html', data)
 
 def help(request):
 	return render(request, 'pneumovis/help.html')
