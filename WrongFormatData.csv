@@ -1,0 +1,6 @@
+barcode,npa_a4_growth,dateCollected,presence,dob,sex,hivExposed,site,serotype,vaccine,sequence
+1,growth,2012/10/15,yes,2012/10/15,Male,Yes,site1,12,NVT,2312
+2,growth,2012/10/15,yes,2012/10/15,Male,Yes,site1,34,NVT,4434
+3,growth,2012/10/15,no,2012/10/15,Female,No,site1,23,PCV,5431
+4,growth,2012/10/15,no,2012/10/15,Female,No,site2,44,PCV,2341
+5,growth,2012/10/15,no,2012/10/15,Female,No,site2,5,PCV,534
