@@ -22,7 +22,7 @@ class Plots:
 		stems1 = plt.stem(index, hivExposedList, label='HIV Exposed', linefmt='C9-', markerfmt='C9x')
 		rects1 = plt.bar(index, gugulethuList, bar_width, alpha=opacity, color='b', label='Gugulethu')
 		rects2 = plt.bar(index + bar_width, mandalayList, bar_width, alpha=opacity, color='k', label='Mandalay')
-		lines1 = plt.plot(index, maleList, marker='o', color='r', label='Males')
+		lines1 = plt.plot(index, maleList, marker='v', color='r', label='Males')
 		lines2 = plt.plot(index, femaleList, marker='o', color='y', label='Females')
 
 		plt.xlabel('Serotypes')
@@ -39,7 +39,7 @@ class Plots:
 		groups = 26
 		index = np.arange(groups)
 
-		lines1 = plt.plot(index, hivExposedList, marker='o', color='k', label='HIV Exposed')
+		lines1 = plt.plot(index, hivExposedList, marker='x', color='k', label='HIV Exposed')
 		lines2 = plt.plot(index, presenceList, marker='o', color='y', label='Presence Of Bacteria')
 
 		plt.ylabel('Number Of Incidents')
@@ -55,7 +55,7 @@ class Plots:
 		groups = 26
 		index = np.arange(groups)
 
-		lines1 = plt.plot(index, vaccinatedList, marker='o', color='k', label='Vaccinated')
+		lines1 = plt.plot(index, vaccinatedList, marker='x', color='k', label='Vaccinated')
 		lines2 = plt.plot(index, presenceList, marker='o', color='y', label='Presence Of Bacteria')
 		#lines3 = plt.plot(index, notVaccinatedList, marker='o', color='b', label='Not Vaccinated') left out this line as it is not as useful
 
@@ -72,7 +72,7 @@ class Plots:
 		groups = 26
 		index = np.arange(groups)
 
-		lines1 = plt.plot(index, gugulethuList, marker='o', color='k', label='Gugulethu')
+		lines1 = plt.plot(index, gugulethuList, marker='x', color='k', label='Gugulethu')
 		lines2 = plt.plot(index, mandalayList, marker='o', color='y', label='Mandalay')
 
 		plt.ylabel('Number Of Incidents')

@@ -16,3 +16,7 @@ matlabplot
 mpld3
 jinja2
 virtualenv
+
+To run tests:
+
+    python manage.py test

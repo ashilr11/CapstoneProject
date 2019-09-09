@@ -122,7 +122,6 @@ def adddata(request):
 
 # method gets all incidents and uses the datahandler class to get the list of data which it returns in the htmlresponse
 # this data can be then used in the html code of the datacards page
-
 def datacards(request):
 	theIncidents = Incident.objects.all()
 	obj = DataHandler()
